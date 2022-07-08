@@ -1,6 +1,6 @@
-# **An Ensemble Deep Learning Model to Classify Scoliosis and Healthy Subjects**
+# **An Ensemble Deep Learning Approach to Classify Scoliosis and Healthy Subjects In Python and Keras**
 
-## **Adolescent idiopathic scoliosis**
+## Adolescent idiopathic scoliosis
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Scoliosis_%2815-year-old%29.jpg" width="250">
@@ -16,7 +16,7 @@ The main drawback with the application of VRS to clinical practice like in AIS s
 
 A narrative review performed by Chen et al. in 2021 [[2]](https://atm.amegroups.com/article/view/60113/html), describes the application of ML in clinical practice procedures regarding scoliosis in various medical phases. In particular, the authors emphasized that an accurate diagnosis with ML can help surgeons avoid misjudgment.
 
-# **Ensemble Deep Learning**
+## Ensemble Deep Learning
 
 <p align="center">
   <img src="https://miro.medium.com/max/1400/1*MxD8Kn_Rn9p_Au4MOGgsmg.png">
@@ -24,11 +24,11 @@ A narrative review performed by Chen et al. in 2021 [[2]](https://atm.amegroups.
   (Image source <a href="https://towardsdatascience.com/neural-networks-ensemble-33f33bea7df3">Medium article</a>)
 </p>
 
-Ensemble modeling is the process by which a machine learning model combines distinct base models to generate generalized predictions using a combination of the predictive power of each of its components. Each base model differs with respect to the variable elements i.e. training data used and algorithm/model architecture. Each of these may capture only a few aspects or learn effectively from only a part of the training data, due to its specific tuning. Ensemble modeling provides us with the opportunity to combine all such models to acquire a single superior model which is based on learnings from most or all parts of the training dataset. Averaging of predictions also help eradicate the issue of individual models fixating on local minima.[[3]](https://www.analyticsvidhya.com/blog/2021/10/ensemble-modeling-for-neural-networks-using-large-datasets-simplified/)
+**Ensemble modeling** is the process by which a machine learning model combines distinct base models to generate generalized predictions using a combination of the predictive power of each of its components. Each base model differs with respect to the variable elements i.e. training data used and algorithm/model architecture. Each of these may capture only a few aspects or learn effectively from only a part of the training data, due to its specific tuning. Ensemble modeling provides us with the opportunity to combine all such models to acquire a single superior model which is based on learnings from most or all parts of the training dataset. Averaging of predictions also help eradicate the issue of individual models fixating on local minima.[[3]](https://www.analyticsvidhya.com/blog/2021/10/ensemble-modeling-for-neural-networks-using-large-datasets-simplified/)
 
-# **This project**
+# This project
 
-In this project we constructed and trained an Ensemble Neural Network Model to classify scoliosis and healthy subjects. The model predicts the probability that a subject suffers from AIS basd on the VRS data. The Ensemble Neural Network performs quite well achieving a balanced accuracy over 85%.
+In this project we constructed and trained an ``Ensemble Neural Network`` to classify scoliosis and healthy subjects. The model predicts the probability that a subject suffers from ``AIS`` basd on the ``VRS`` data. The Ensemble Neural Network is implemented using the [Keras](https://keras.io/), and it is averaging the prediction of a bunch of multi-layer perceptron (MLP) based neural networks. The Ensemble Neural Network performs quite well achieving a ``balanced accuracy over 85%``.
 
 ## Dataset
 
