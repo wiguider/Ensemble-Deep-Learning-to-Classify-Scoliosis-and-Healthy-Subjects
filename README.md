@@ -19,7 +19,7 @@ A narrative review performed by Chen et al. in 2021 [[2]](https://atm.amegroups.
 # **Ensemble Deep Learning**
 
 <p align="center">
-  <img src="https://miro.medium.com/max/1400/1*MxD8Kn_Rn9p_Au4MOGgsmg.png" width="250">
+  <img src="https://miro.medium.com/max/1400/1*MxD8Kn_Rn9p_Au4MOGgsmg.png">
   <br>
   (Image source <a href="https://towardsdatascience.com/neural-networks-ensemble-33f33bea7df3">Medium article</a>)
 </p>
@@ -28,7 +28,7 @@ Ensemble modeling is the process by which a machine learning model combines dist
 
 # **This project**
 
-In this project we constructed and trained an Ensemble Neural Network Model to classify scoliosis and healthy subjects. The model predicts the probability that a subject suffers from AIS basd on the VRS data.
+In this project we constructed and trained an Ensemble Neural Network Model to classify scoliosis and healthy subjects. The model predicts the probability that a subject suffers from AIS basd on the VRS data. The Ensemble Neural Network performs quite well achieving a balanced accuracy over 85%.
 
 ## Dataset
 
