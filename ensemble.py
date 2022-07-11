@@ -1,11 +1,27 @@
 import os
 import pickle
+import random
 import numpy as np
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Input, Dense, ReLU, BatchNormalization, Activation
 from tensorflow.keras.optimizers import Adam, Adagrad
 from tensorflow.keras.metrics import BinaryAccuracy
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.random import set_seed
 from sklearn.metrics import balanced_accuracy_score
+
+# Seed value
+# Apparently you may use different seed values at each stage
+seed_value= 0
+# 1. Set the `PYTHONHASHSEED` environment variable at a fixed value
+os.environ['PYTHONHASHSEED']=str(seed_value)
+# 2. Set the `python` built-in pseudo-random generator at a fixed value
+random.seed(seed_value)
+# 3. Set the `numpy` pseudo-random generator at a fixed value
+np.random.seed(seed_value)
+# 4. Set the `tensorflow` pseudo-random generator at a fixed value
+set_seed(seed_value)
+
 
 class EnsembleNNClassifier():
     """EnsembleNNClassifier represents an Ensemble Model of Neural Networks 
@@ -15,6 +31,14 @@ class EnsembleNNClassifier():
                  input_shape,
                  layers_units,
                  n_members=5):
+        """EnsembleNNClassifier represents an Ensemble Model of Neural Networks 
+    for binary classification.
+
+        Args:
+            input_shape (Tuple): Shape of the input data. (27,)
+            layers_units (Tuple): Tuple representing the number of units in each layer. (64, 64,)
+            n_members (int, optional): Number of members in the ensemble model. Defaults to 5.
+        """
         self.input_shape = input_shape
         self.layers_units = layers_units
         self.num_hidden_layers = len(layers_units)
@@ -156,7 +180,7 @@ class EnsembleNNClassifier():
             y_hats = [model.predict(X) for model in self.members]
             y_hats = np.array(y_hats)
             # mean of predictions
-            predictions = np.mean(y_hats, axis=0)
+            predictions = np.median(y_hats, axis=0)
             return predictions
         raise Exception("The model should be fitted to make predictions")
     
@@ -287,9 +311,15 @@ class EnsembleNNClassifier():
             a record of training loss values and metrics values
             at successive epochs.
         """
+        monitor = EarlyStopping(monitor='binary_accuracy', min_delta=1e-3, 
+                        patience=5, verbose=1, mode='auto')
         #fit model
-        model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size,
-                            shuffle=True, verbose=0)
+        model.fit(x_train, y_train, 
+                  epochs=epochs, 
+                  batch_size=batch_size,
+                  shuffle=True, 
+                  callbacks=[monitor],
+                  verbose=0)
         return model
 
     def _create_folder_if_it_doesnt_exist(self, folder_path):
