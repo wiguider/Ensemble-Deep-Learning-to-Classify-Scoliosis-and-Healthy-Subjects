@@ -24,15 +24,24 @@ A narrative review performed by Chen et al. in 2021 [[2]](https://atm.amegroups.
   (Image source <a href="https://towardsdatascience.com/neural-networks-ensemble-33f33bea7df3">Medium article</a>)
 </p>
 
-**Ensemble modeling** is the process by which a machine learning model combines distinct base models to generate generalized predictions using a combination of the predictive power of each of its components. Each base model differs with respect to the variable elements i.e. training data used and algorithm/model architecture. Each of these may capture only a few aspects or learn effectively from only a part of the training data, due to its specific tuning. Ensemble modeling provides us with the opportunity to combine all such models to acquire a single superior model which is based on learnings from most or all parts of the training dataset. Averaging of predictions also help eradicate the issue of individual models fixating on local minima.[[3]](https://www.analyticsvidhya.com/blog/2021/10/ensemble-modeling-for-neural-networks-using-large-datasets-simplified/)
+Deep learning neural networks are ```nonlinear methods```.
+
+They offer increased ```flexibility``` and can ```scale``` in proportion to the amount of training data available. A downside of this flexibility is that they learn via a ```stochastic training algorithm``` which means that they are sensitive to the specifics of the training data and may find a ```different set of weights each time they are trained```, which in turn produce different predictions.
+
+Generally, this is referred to as neural networks having a ```high variance``` and it can be frustrating when trying to develop a final model to use for making predictions.
+
+A successful approach to reducing the variance of neural network models is to ```train multiple models``` instead of a single model and to ```combine the predictions``` from these models. This is called ```ensemble learning``` and not only ```reduces the variance``` of predictions but also can ```result in predictions that are better``` than any single model. [[3]](https://machinelearningmastery.com/ensemble-methods-for-deep-learning-neural-networks/)
+
+**Ensemble modeling** is the process by which a machine learning model combines distinct base models to generate generalized predictions using a combination of the predictive power of each of its components. Each base model differs with respect to the variable elements i.e. training data used and algorithm/model architecture. Each of these may capture only a few aspects or learn effectively from only a part of the training data, due to its specific tuning. Ensemble modeling provides us with the opportunity to combine all such models to acquire a single superior model which is based on learnings from most or all parts of the training dataset. Averaging of predictions also help eradicate the issue of individual models fixating on local minima.[[4]](https://www.analyticsvidhya.com/blog/2021/10/ensemble-modeling-for-neural-networks-using-large-datasets-simplified/)
 
 # This project
 
-In this project we constructed and trained an ``Ensemble Neural Network`` to classify scoliosis and healthy subjects. The model predicts the probability that a subject suffers from ``AIS`` basd on the ``VRS`` data. The Ensemble Neural Network is implemented using the [Keras](https://keras.io/), and it is averaging the prediction of a bunch of multi-layer perceptron (MLP) based neural networks. The Ensemble Neural Network performs quite well achieving a ``balanced accuracy over 85%``.
+In this project we constructed and trained an ``Ensemble Neural Network`` to classify scoliosis and healthy subjects. The model predicts the probability that a subject suffers from ``AIS`` basd on the ``VRS`` data. The Ensemble Neural Network is implemented using the [Keras](https://keras.io/), and it is averaging the prediction of ``16 multi-layer perceptron (MLP) neural networks``.
+Each neural network is made of ``two hidden`` ([Dense](https://keras.io/api/layers/core_layers/dense/)) ``layers`` and each layer is composed of ``64 neurones``. The Ensemble Neural Network performs quite well achieving a ``balanced accuracy over 86%``.
 
 ## Dataset
 
-We leveraged the data constituted by the Video-Raster-Stereography (VRS) measures of subjects who have undergone a clinical check and have been diagnosticated as healthy/AIS. Acquisition of data was performed through VRS by the Formetric™4D system (Diers International GmbH, Schlangenbad, Germany) for the research work by Colombo T et al. 2021 on [Supervised and unsupervised learning to classify scoliosis and healthy subjects based on non-invasive rasterstereography analysis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0261511)
+We leveraged the data constituted by the Video-Raster-Stereography (VRS) measures of subjects who have undergone a clinical check and have been diagnosticated as healthy/AIS. Acquisition of data was performed through VRS by the Formetric™4D system (Diers International GmbH, Schlangenbad, Germany) for the research work by Colombo T et al. 2021 on [Supervised and unsupervised learning to classify scoliosis and healthy subjects based on non-invasive rasterstereography analysis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0261511).
 
 ## Scripts
 
