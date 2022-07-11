@@ -16,7 +16,7 @@ def load_scoliosis_data():
 if __name__ == "__main__":
     X_train, y_train, X_test, y_test = load_scoliosis_data()
     
-    clf = EnsembleNNClassifier(input_shape=X_train.iloc[0].shape, layers_units=(64,64), n_members=10)
+    clf = EnsembleNNClassifier(input_shape=X_train.iloc[0].shape, layers_units=(64,64,), n_members=16)
     print('Start training...')
     clf.fit(X_train, y_train, 
                      epochs= 100, 
