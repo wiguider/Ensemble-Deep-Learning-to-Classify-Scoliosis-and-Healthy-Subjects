@@ -49,6 +49,9 @@ We leveraged the data constituted by the Video-Raster-Stereography (VRS) measure
 
 * ``train_ensemble.py``: trains the ensemble deep learning algorithm model on a dataset composed of 272 scoliotic subjects and 192 healthy subjects, and saves the weights and parameters of the model under the selected directory (in this case, the trained ensemble model is saved under ``model``) in the project folder. Then, it loads the model and assesses the quality of predictions using the ``balanced_accuracy_score``.
 
+* ``main.py``: contains an example of how to load and use the trained Ensemble Deep Learning Model.
+
+
 ## Installation
 
 Install Python (>=3.6):
@@ -69,3 +72,5 @@ Install the requirements:
 ```
 pip install -r requirements.txt
 ```
+
+To load and run the already trained model you can directly execute the command: ``python main.py``
